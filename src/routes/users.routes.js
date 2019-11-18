@@ -35,10 +35,10 @@ router.post('/', registerUser);
 router.post('/login', loginUser);
 router.post('/logout', authMiddleware, logoutUser);
 router.post('/logout/all', authMiddleware, logoutAllUserSessions);
-router.post('/me/avatar', authMiddleware, upload.single('uploadFile'), uploadFile, errorHandler);
+router.post('/me/avatar', authMiddleware, upload.single('avatar'), uploadFile, errorHandler);
 
 // PUT requests
-router.put('/:id', authMiddleware, updateUserProfile);
+router.put('/me', authMiddleware, updateUserProfile);
 
 // DELETE requests
 router.delete('/me', authMiddleware, deleteUser);

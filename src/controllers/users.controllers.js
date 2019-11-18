@@ -90,7 +90,7 @@ const updateUserProfile = async (req, res) => {
 
   if (!isValidUpdate) {
     res
-      .status(401)
+      .status(400)
       .send(
         `Invalid update field ${updates}. Accepted fields are: ${validUpdateFields}`,
       );
