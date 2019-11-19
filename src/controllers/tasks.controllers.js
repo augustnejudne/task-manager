@@ -70,7 +70,7 @@ const updateOneTask = async (req, res) => {
 
   if (!isValidUpdate) {
     res
-      .status(401)
+      .status(400)
       .send(`Invalid update. Acceptable fields are: ${validUpdateFields}`);
     return;
   }
@@ -86,6 +86,7 @@ const updateOneTask = async (req, res) => {
     );
     if (!task) {
       res.status(404).send(`Cannot find task with id: ${req.params.id}`);
+      return;
     }
     await task.save();
     res.send(task);
